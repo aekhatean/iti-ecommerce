@@ -1,0 +1,296 @@
+/* 
+    how is css file structured?
+    1- Variables (ln 38- 60): starting with the :root to set ovr variables, Such as colors, font sizes, and font family(ies).
+    2- Reset (ln 62 - 141): this section is for resetting css accross browsers 
+    3- Utility Classes (ln 143 - 296) : startig from this section you will find classes that will usually come in handy, you will find different layouts, font-sizes, letter-spacing, back grounod colors
+*/
+
+/* 
+    Notice: our website is mobile oriented, which means we start with mobile in mind first, then we adjust our design for PC and Tablet
+    accordingly.
+
+    -and this also means we tend to favour (min-width) over (max-width) in @media breakpoints.
+
+    -Our breakpoints are:   *For Pc=>  min-width: 45rem
+                            *For Tablet=> min-width: 35rem
+                            *mobile is our default
+*/
+
+/* 
+    RESPOSIVNESS
+    Notice:
+    *Try not to use fixed properties such as "width,.." instead use "min-width, max-width, ...".
+    *Never set height unless it is absolutly neccesary.
+    *Use rem and em instead of pixels, unless you are setting very small value to a property that does not affect the layout,
+    such as box-shadow inset, or outline..,etc.
+*/
+
+/* 
+    ACCESSIBILITY 
+    * Make sure to set alt for every image you include.
+    * Setting measurements in em & rem is also for accessibility purposes (they do not override users' browser prefferences)
+    * set a title for every icon that does not have a visible text next to it and give it class "sr-only" this way screen readers 
+    can indicate what these icons are for.
+    * Make sure your headings (h1,h2,h3...,h6) follow content logical heircy. and use them for text sizing instead us fs-.. classes
+    (fs-200, fs-300, fs-400, ..., fs-900)
+*/
+
+/* --------- */
+/* Variables */
+/* --------- */
+:root {
+  /* Colors */
+  --clr-dark: 55 56 60;
+  --clr-accent: 230 203 100;
+  --clr-white: 255 255 255;
+
+  /* font-sizes */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 6.25rem;
+  --fs-700: 3.5rem;
+  --fs-600: 2rem;
+  --fs-500: 1.75rem;
+  --fs-400: 1.125rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+
+  /* font-families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/* ----- */
+/* Reset */
+/* ----- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+/* Set the heading Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: var(--fs-400);
+}
+
+/* Set up the body */
+body,
+.App {
+  line-height: 1.5;
+  min-height: 100vh;
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  background-color: rgb(var(--clr-dark));
+  color: rgb(var(--clr-white));
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
+}
+
+/* Facilitate working with images */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Facilitate working with form elements */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove animatinos for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 00.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------- */
+/* Utility Classes */
+/* --------------- */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 50rem)) minmax(
+        1rem,
+        1fr
+      );
+    text-align: left;
+  }
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Added line*/
+  border: 0;
+}
+
+/* Colors */
+.bg-dark {
+  background-color: rgb(var(--clr-dark));
+}
+
+.bg-light {
+  background-color: rgb(var(--clr-accent));
+}
+
+.bg-white {
+  background-color: rgb(var(--clr-white));
+}
+
+.txt-dark {
+  color: rgb(var(--clr-dark));
+}
+
+.txt-light {
+  color: rgb(var(--clr-accent));
+}
+
+.txt-white {
+  color: rgb(var(--clr-white));
+}
+
+/* typography */
+
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+
+.ff-sans-normal {
+  font-family: var(--ff-sans-normal);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+  line-height: 1.1;
+}
