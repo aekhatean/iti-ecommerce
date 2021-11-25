@@ -209,6 +209,9 @@ select {
     max-width: 50ch;
 }
 
+
+/*///////////////////////////pc/////////////*/
+
 @media (min-width: 45em) {
     .grid-container {
         column-gap: var(--container-gap, 2rem);
@@ -225,7 +228,32 @@ select {
         padding-bottom: max(6rem, 20vh);
         align-items: end;
     }
+    .mainscreen_sign {
+        width: 98vw;
+        height: 95vh;
+        background-color: rgb(var(--clr-accent));
+        margin: auto;
+        margin-top: 2.5vh;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mainscreen_leftpart_sign {
+        width: 49vw;
+        height: 95vh;
+        background-color: rgb(var(--clr-accent));
+    }
+    .mainscreen_rightpart_sign {
+        width: 49vw;
+        height: 95vh;
+        background-color: rgb(var(--clr-white));
+        border-radius: 20px 5px 5px 20px;
+    }
 }
+
+
+/*///////////////////////////*/
 
 .flow>*+* {
     margin-top: var(--flow-space, 1rem);
