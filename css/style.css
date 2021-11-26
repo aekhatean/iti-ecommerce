@@ -9,7 +9,7 @@
     Notice: our website is mobile oriented, which means we start with mobile in mind first, then we adjust our design for PC and Tablet
     accordingly.
 
-    -and this also means we tend to favour (min-width) over (max-width) in @media breakpoints.    
+    -and this also means we tend to favour (min-width) over (max-width) in @media breakpoints.
     -Our breakpoints are:   *For Pc=>  min-width: 45rem
                             *For Tablet=> min-width: 35rem
                             *mobile is our default
@@ -35,15 +35,16 @@
 */
 
 /* --------- */
+
 /* Variables */
+
 /* --------- */
+
 :root {
   /* Colors */
-  --clr-black: 0 0 0;
   --clr-dark: 55 56 60;
   --clr-accent: 230 203 100;
   --clr-white: 255 255 255;
-
   /* font-sizes */
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 6.25rem;
@@ -53,19 +54,21 @@
   --fs-400: 1.125rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
-
   /* font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
 /* ----- */
+
 /* Reset */
+
 /* ----- */
 
 /* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
+
 *,
 *::before,
 *::after {
@@ -73,6 +76,7 @@
 }
 
 /* Reset margins */
+
 body,
 h1,
 h1,
@@ -100,19 +104,21 @@ p {
 }
 
 /* Set up the body */
+
 body {
   line-height: 1.5;
   min-height: 100vh;
   font-family: var(--ff-sans-normal);
   font-size: var(--fs-400);
   background-color: rgb(var(--clr-white));
-  color: rgb(var(--clr-black));
+  color: rgb(var(--clr-dark));
   display: grid;
   grid-template-rows: min-content 1fr;
   overflow-x: hidden;
 }
 
 /* Facilitate working with images */
+
 img,
 picture {
   max-width: 100%;
@@ -120,6 +126,7 @@ picture {
 }
 
 /* Facilitate working with form elements */
+
 input,
 button,
 textarea,
@@ -128,6 +135,7 @@ select {
 }
 
 /* Remove animatinos for people who've turned them off */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -140,7 +148,9 @@ select {
 }
 
 /* --------------- */
+
 /* Utility Classes */
+
 /* --------------- */
 
 .flex {
@@ -174,6 +184,8 @@ select {
   max-width: 50ch;
 }
 
+/*///////////////////////////pc/////////////*/
+
 @media (min-width: 45em) {
   .grid-container {
     column-gap: var(--container-gap, 2rem);
@@ -186,16 +198,38 @@ select {
   .grid-container > *:first-child {
     grid-column: 2;
   }
-
   .grid-container > *:last-child {
     grid-column: 3;
   }
-
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
     align-items: end;
   }
+  .mainscreen_sign {
+    width: 98vw;
+    height: 95vh;
+    background-color: rgb(var(--clr-accent));
+    margin: auto;
+    margin-top: 2.5vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mainscreen_leftpart_sign {
+    width: 49vw;
+    height: 95vh;
+    background-color: rgb(var(--clr-accent));
+  }
+  .mainscreen_rightpart_sign {
+    width: 49vw;
+    height: 95vh;
+    background-color: rgb(var(--clr-white));
+    border-radius: 20px 5px 5px 20px;
+  }
 }
+
+/*///////////////////////////*/
 
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);
@@ -209,11 +243,13 @@ select {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* Added line*/
+  white-space: nowrap;
+  /* Added line*/
   border: 0;
 }
 
 /* Colors */
+
 .bg-dark {
   background-color: rgb(var(--clr-dark));
 }
@@ -251,9 +287,11 @@ select {
 .letter-spacing-1 {
   letter-spacing: 4.75px;
 }
+
 .letter-spacing-2 {
   letter-spacing: 2.7px;
 }
+
 .letter-spacing-3 {
   letter-spacing: 2.35px;
 }
@@ -265,24 +303,31 @@ select {
 .fs-900 {
   font-size: var(--fs-900);
 }
+
 .fs-800 {
   font-size: var(--fs-800);
 }
+
 .fs-700 {
   font-size: var(--fs-700);
 }
+
 .fs-600 {
   font-size: var(--fs-600);
 }
+
 .fs-500 {
   font-size: var(--fs-500);
 }
+
 .fs-400 {
   font-size: var(--fs-400);
 }
+
 .fs-300 {
   font-size: var(--fs-300);
 }
+
 .fs-200 {
   font-size: var(--fs-200);
 }
@@ -320,16 +365,77 @@ select {
 #products-grid {
   height: 100%;
   flex: 0.8;
-  background-color: rgb(var(--clr-dark));
+  background-color: rgb(var(--clr-white));
   width: 100%;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  grid-gap: 0.5rem;
+  grid-gap: 1.5rem;
   padding: 1rem;
 }
 
-#products-grid > * {
+.grid-item {
+  display: grid;
+  position: relative;
+  border-radius: 1rem;
   background-color: rgb(var(--clr-white));
-  height: 100%;
+  color: rgb(var(--clr-dark));
+  box-shadow: 2px 3px 8px 1px rgba(var(--clr-dark) / 0.2);
+  height: 20rem;
+  padding-top: 0.5rem;
+  grid-template-rows: repeat(8, 1fr);
+  place-items: center;
+  grid-template-areas: "product-img" "product-img" "product-img" "product-img" "product-title" "product-title" "product-price" "add-to-cart";
+}
+
+.products-img {
+  grid-area: product-img;
+  max-height: 100%;
+}
+
+.products-title {
+  grid-area: product-title;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.products-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+  transition: color 0.2s ease-in-out;
+}
+
+.products-price-rating {
+  grid-area: product-price;
+  width: 100%;
+  padding-inline: 1.5rem;
+  justify-content: space-between;
+}
+
+.products-rating {
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.products-rating > img {
+  height: 1rem;
+  position: relative;
+  bottom: 0.1rem;
+}
+
+.products-add-to-cart {
+  grid-area: add-to-cart;
+  position: absolute;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  border: none;
+  background-color: rgb(var(--clr-accent));
+  cursor: pointer;
 }
