@@ -42,8 +42,9 @@
 
 :root {
   /* Colors */
+  --clr-black: 0 0 0;
   --clr-dark: 55 56 60;
-  --clr-accent: 230 203 100;
+  --clr-accent: 255 203 5;
   --clr-white: 255 255 255;
   /* font-sizes */
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
@@ -208,7 +209,7 @@ select {
   .mainscreen_sign {
     width: 98vw;
     height: 95vh;
-    background-color: rgb(var(--clr-accent));
+    background-color: rgb(255, 203, 5);
     margin: auto;
     margin-top: 2.5vh;
     border-radius: 5px;
@@ -219,13 +220,78 @@ select {
   .mainscreen_leftpart_sign {
     width: 49vw;
     height: 95vh;
-    background-color: rgb(var(--clr-accent));
+    background-color: rgb(255, 203, 5);
   }
   .mainscreen_rightpart_sign {
     width: 49vw;
     height: 95vh;
     background-color: rgb(var(--clr-white));
     border-radius: 20px 5px 5px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(var(--clr-white));
+  }
+  .form_div_class {
+    width: 47vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  .form_div_class_2items {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .title {
+    font-size: var(--fs-600);
+    font-family: var(--ff-serif);
+    width: 40%;
+    height: 50px;
+    background-color: rgb(var(--clr-accent));
+    color: rgb(var(--clr-black));
+    text-align: center;
+    border-radius: 10px;
+  }
+  .submitcolor {
+    background-color: rgb(var(--clr-accent));
+    border-radius: 10px;
+  }
+  .nonsubmitcolor {
+    background-color: rgb(12, 12, 12);
+    border-radius: 10px;
+    color: rgb(var(--clr-white));
+  }
+  .title_button_color {
+    background-color: rgb(var(--clr-white));
+    border-radius: 10px;
+    color: rgb(var(--clr-black));
+    box-shadow: 0 4px 8px 0 rgba(var(--clr-black) / 0.2),
+      0 6px 20px 0 rgba(var(--clr-black) / 0.19);
+    height: 50px;
+  }
+  .bar_signup {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(var(--clr-black));
+  }
+  .f_bar {
+    width: 40%;
+    height: 1px;
+    background-color: gray;
+  }
+  .signlink {
+    align-self: flex-start;
+    margin-left: 20px;
+  }
+  /* //////////////left part///////// */
+  .leftpart_logo {
+    width: 100%;
+    height: 100%;
   }
 }
 
