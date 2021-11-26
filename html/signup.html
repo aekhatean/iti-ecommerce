@@ -5,9 +5,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/app.js" defer></script>
-    <title>Ecommerce | signup</title>
+    <title>Ecommerce | sign up</title>
 </head>
 
 <body>
@@ -15,15 +17,79 @@
 
 
     <div class="mainscreen_sign">
-        <div class="mainscreen_leftpart_sign"></div>
-        <div class="mainscreen_rightpart_sign"></div>
+
+        <!-- ////////////left part////////////////// -->
+        <div class="mainscreen_leftpart_sign">
+
+            <img src="../resources/251.jpg" alt="bee logo" class="leftpart_logo">
+
+        </div>
+
+
+
+        <!-- ////////////right part////////////////// -->
+        <div class="mainscreen_rightpart_sign">
+            <!-- <div class="title">Sign up</div> -->
+            <div id="title" class="form_div_class">
+                <button class=" form_div_class_2items title_button_color w3-input" value="signin">
+                    <span class="google_icon"><img src="../resources/google.png" alt="google" width="20px" height="20px"></span>
+                     <span class="text">continue with Google</span>
+                </button>
+
+                <button class=" form_div_class_2items title_button_color w3-input" value="signin">
+                    <span class="facebook_icon"><span class="google_icon"><img src="../resources/facebook.png" alt="google" width="20px" height="20px"></span></span>
+                     <span class="text">continue with Facebook</span>
+                </button>
+            </div>
+
+            <!-- ///////////bar between/////////// -->
+
+            <div class="bar_signup">
+                <span class="f_bar"></span>
+                <span>OR</span>
+                <span class="f_bar"></span>
+            </div>
+
+            <!-- /////////////////////// -->
+            <div class="form_signup_parent">
+                <form action="#" id="form_signup_id">
+                    <div id="f_l_name" class="form_div_class">
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="First Name">
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="Last Name">
+                    </div>
+                    <div id="u_name" class="form_div_class">
+                        <input class="w3-input" type="text" placeholder="User Name">
+                    </div>
+                    <div id="phone" class="form_div_class">
+                        <input class="w3-input" type="tel" placeholder="Phone">
+                    </div>
+                    <div id="city_street" class="form_div_class">
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="City">
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="Street">
+                    </div>
+                    <div id="email" class="form_div_class">
+                        <input class="w3-input" type="email" placeholder="Email">
+                    </div>
+                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" placeholder="Password"></div>
+                    <div id="signup_signin_buttons" class="form_div_class" style="margin-top: 25px;">
+                        <input class="w3-input  submitcolor" type="submit" value="sign up">
+                    </div>
+                </form>
+            </div>
+            <div class="signlink">
+                <span style="color: black;">Already have an account?</span>
+                <a href="signin.html" style="color: rgb(255, 203, 5);">Sign in </a>
+            </div>
+
+
+        </div>
 
 
     </div>
 
 
 
-
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
