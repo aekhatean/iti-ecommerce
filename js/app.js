@@ -34,26 +34,41 @@ fetch("../api/products.json")
 const cartProducts = Array();
 function addToCart(purchaseButton) {
   const productId = purchaseButton.parentNode.attributes.key.value;
-  cartProducts.push(productId);
+  const productCount = 3;
+  const PurchasedProduct = {
+    id: productId,
+    count: productCount,
+  };
+  cartProducts.push(PurchasedProduct);
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
   console.log(cartProducts);
 }
 
+// Show cart products on cart page load
 const visibleCartProducts = document.getElementById("cart-products-section");
 
-// Show cart products on cart page load
+const proceedBtn = document.createElement("div");
+proceedBtn.innerHTML =
+  '<a id="cart-proceed" href="checkout.html">Proceed To Checkout</a>';
+
 function showCart() {
   let currentCart = JSON.parse(localStorage.getItem("userCart"));
+  console.log(currentCart);
   for (purchase in currentCart) {
-    const productIndex = parseInt(currentCart[purchase]);
+    const productIndex = parseInt(currentCart[purchase].id);
     // console.log(productIndex);
     fetch("../api/products.json")
       .then((res) => res.json())
       .then((data) => {
         let product = data[productIndex];
-        console.log(product);
+        let count =
+          data[productIndex].id - 1 === parseInt(currentCart[purchase].id)
+            ? currentCart[purchase].count
+            : 1;
+        // console.log(parseInt(currentCart[purchase].id));
+        // console.log(data[productIndex].id - 1);
         //Very bad performance, preferably store products data in full instead
         const item = document.createElement("div");
         item.innerHTML = `
@@ -65,12 +80,13 @@ function showCart() {
             : product.title
         }</b>
         <p class="cart-product-price fs-400">Price: <b>${product.price}</b>$</p>
-        <p class="cart-product-count flex fs-400">count : 1</p>
+        <p class="cart-product-count flex fs-400">count :${count}</p>
         <p class="cart-product-total">Total: <b>${product.price}</b>$</p>
         </div>
               <hr />`;
         if (location.href.indexOf("cart.html") > -1)
           visibleCartProducts.appendChild(item);
+        visibleCartProducts.appendChild(proceedBtn);
       });
   }
 }
