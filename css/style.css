@@ -409,6 +409,7 @@ select {
 /* Pages specific style */
 /* -------------------- */
 
+/* Products page */
 #products-page {
   flex-direction: column;
   --gap: 0;
@@ -504,6 +505,20 @@ select {
   border: none;
   background-color: rgb(var(--clr-accent));
   cursor: pointer;
+}
+
+/* Cart page */
+#cart-page {
+  justify-content: center;
+}
+#cart-products-section {
+  flex-direction: column;
+  margin: 8rem;
+  justify-content: center;
+}
+
+.cart-product-card {
+  max-width: 40rem;
 }
 
 /* Home page *************************** aya */

@@ -5,14 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
-    <title>Our collection</title>
+    <title>My cart</title>
   </head>
-  <body>
-    <main id="products-page" class="flex">
-      <aside id="search-filters"><a href="cart.html">Cart Page</a></aside>
-      <section id="products-grid">
-        <!-- Prodcuts from products JSON goes here, coming from app.js -->
-      </section>
+  <body onload="showCart()">
+    <main id="cart-page" class="flex">
+      <section id="cart-products-section" class="flex"></section>
     </main>
     <script src="../js/app.js"></script>
   </body>
