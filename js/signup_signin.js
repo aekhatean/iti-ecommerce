@@ -30,13 +30,6 @@ Password.oninvalid = function(event) {
     event.target.setCustomValidity('pass word should be more than 6 numbers and chars');
 }
 
-
-
-var user = {
-    firstName: document.getElementById("F_name").value,
-    Lastname: document.getElementById("L_name").value,
-}
-
 function submmition() {
 
     localStorage.setItem("user", [document.getElementById("F_name").value, document.getElementById("L-name").value, document.getElementById("Username").value, document.getElementById("Phone").value, document.getElementById("City").value, document.getElementById("Email").value, document.getElementById("Password").value])
@@ -50,13 +43,12 @@ function submmition() {
 function chick_signin_val(event) {
     var user = localStorage.getItem('user');
     var user2 = user.split(",");
-    alert(user2[5])
 
     if (user2[5] == document.getElementById("Email2").value && user2[6] == document.getElementById("Password2").value) {
         return true
     } else {
         event.preventDefault();
-        alert(" user name or password is wrong");
+        alert(" Email or password is wrong");
 
     }
 
