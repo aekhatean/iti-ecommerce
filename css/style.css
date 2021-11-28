@@ -511,14 +511,54 @@ select {
 #cart-page {
   justify-content: center;
 }
+
 #cart-products-section {
   flex-direction: column;
-  margin: 8rem;
   justify-content: center;
+  margin: 8rem;
+  position: relative;
+  border-radius: 1rem;
+  background-color: rgb(var(--clr-white));
+  color: rgb(var(--clr-dark));
+  box-shadow: 2px 3px 8px 1px rgba(var(--clr-dark) / 0.2);
+  padding: 1rem;
+}
+
+#cart-products-section hr {
+  color: rgb(var(--clr-dark) / 0.05);
 }
 
 .cart-product-card {
+  margin-top: 1rem;
   max-width: 40rem;
+  max-height: 12rem;
+  padding: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "cart-product-img cart-product-title cart-product-title cart-product-title"
+    "cart-product-img cart-product-price cart-product-count cart-product-total";
+}
+
+.cart-product-img {
+  grid-area: cart-product-img;
+  max-width: 40%;
+}
+
+.cart-product-title {
+  grid-area: cart-product-title;
+}
+
+.cart-product-price {
+  grid-area: cart-product-price;
+}
+
+.cart-product-count {
+  grid-area: cart-product-count;
+}
+
+.cart-product-total {
+  grid-area: cart-product-total;
 }
 
 /* Home page *************************** aya */
