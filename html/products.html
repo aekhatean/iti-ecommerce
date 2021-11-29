@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>Our collection</title>
   </head>
-  <body>
+  <body onload="displayProducts()">
     <nav id="nav" class="bg-dark txt-white">
       <div id="nav-logo">BeeMart🐝</div>
 
@@ -64,7 +64,7 @@ C320.55,385.221,233.748,385.221,180.209,331.682z"
           </svg>
         </a>
 
-        <a>
+        <a href="cart.html">
           <svg
             class="icon"
             version="1.1"
@@ -163,11 +163,74 @@ C320.55,385.221,233.748,385.221,180.209,331.682z"
     </nav>
 
     <main id="products-page" class="flex">
-      <aside id="search-filters"><a href="cart.html">Cart Page</a></aside>
+      <form action="#" id="search-filters" class="flex">
+        <!-- Search products by name -->
+        <details id="search">
+          <summary>Search</summary>
+          <section>
+            <input type="text" name="search" placeholder="search products" />
+          </section>
+        </details>
+
+        <!-- Search products by category & price range -->
+        <details id="filters">
+          <summary>Filters</summary>
+          <section id="categories-filter">
+            <p class="fs-300 fw-bold">Categories</p>
+            <br />
+            <input
+              type="checkbox"
+              id="womens-clothing"
+              name="category"
+              value="womens-clothing"
+            />
+            <label for="womens-clothing"> women's clothing</label><br />
+
+            <input
+              type="checkbox"
+              id="mens-clothing"
+              name="category"
+              value="mens-clothing"
+            />
+            <label for="mens-clothing"> men's clothing</label><br />
+
+            <input
+              type="checkbox"
+              id="jewelery"
+              name="category"
+              value="jewelery"
+            />
+            <label for="jewelery"> jewelery</label><br />
+
+            <input
+              type="checkbox"
+              id="electronics"
+              name="category"
+              value="electronics"
+            />
+            <label for="electronics"> electronics</label><br />
+          </section>
+          <hr />
+          <section>
+            <p class="fs-300 fw-bold">Price range</p>
+            <input
+              type="range"
+              name="priceRange"
+              min="1"
+              max="100"
+              value="50"
+              class="slider"
+              id="myRange"
+            />
+          </section>
+        </details>
+        <input type="submit" id="search-button" value="Apply Filters" />
+      </form>
       <section id="products-grid">
         <!-- Prodcuts from products JSON goes here, coming from app.js -->
       </section>
     </main>
+
     <footer id="footer" class="bg-dark txt-white">
       <div id="about">
         <h3>BeeMart🐝</h3>
