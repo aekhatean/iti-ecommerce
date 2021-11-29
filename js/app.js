@@ -34,7 +34,7 @@ fetch("../api/products.json")
 const cartProducts = Array();
 function addToCart(purchaseButton) {
   const productId = purchaseButton.parentNode.attributes.key.value;
-  const productCount = 3;
+  const productCount = 1;
   const PurchasedProduct = {
     id: productId,
     count: productCount,

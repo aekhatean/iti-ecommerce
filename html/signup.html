@@ -49,30 +49,29 @@
                 <span>OR</span>
                 <span class="f_bar"></span>
             </div>
-
             <!-- /////////////////////// -->
             <div class="form_signup_parent">
-                <form action="#" id="form_signup_id">
+                <form action="home.html" id="form_signup_id">
                     <div id="f_l_name" class="form_div_class">
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="First Name">
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="Last Name">
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="First Name" id="F_name" required>
+                        <input class="w3-input form_div_class_2items" type="text" placeholder="Last Name" id="L-name" required onblur="check_validation_text('L_name')" pattern="[a-zA-z]{3,15}">
                     </div>
                     <div id="u_name" class="form_div_class">
-                        <input class="w3-input" type="text" placeholder="User Name">
+                        <input class="w3-input" type="text" placeholder="User Name" id="Username" required onblur="check_validation_text('Username')" pattern="[a-zA-z]{3,15}">
                     </div>
                     <div id="phone" class="form_div_class">
-                        <input class="w3-input" type="tel" placeholder="Phone">
+                        <input class="w3-input" type="tel" placeholder="Phone" id="Phone" required onblur="check_validation_text('Phone')" pattern="[0-9]{11}">
                     </div>
                     <div id="city_street" class="form_div_class">
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="City">
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="Street">
+                        <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9]{3,15}">
+                        <input class="w3-input form_div_class_2items" type="text" id="Street" placeholder="Street" required onblur="check_validation_text('Street')" pattern="[a-zA-z0-9]{3,15}">
                     </div>
                     <div id="email" class="form_div_class">
-                        <input class="w3-input" type="email" placeholder="Email">
+                        <input class="w3-input" type="email" placeholder="Email" id="Email" required>
                     </div>
-                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" placeholder="Password"></div>
+                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" id="Password" placeholder="Password" required onblur="check_validation_text('Password')" pattern="[a-zA-z0-9]{6,15}"></div>
                     <div id="signup_signin_buttons" class="form_div_class" style="margin-top: 25px;">
-                        <input class="w3-input  submitcolor" type="submit" value="sign up">
+                        <input class="w3-input  submitcolor" type="submit" value="sign up" onclick="submmition()">
                     </div>
                 </form>
             </div>
@@ -86,10 +85,8 @@
 
 
     </div>
+    <script src="../js/signup_signin.js"></script>
 
-
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

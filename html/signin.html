@@ -52,12 +52,12 @@
 
             <!-- /////////////////////// -->
             <div class="form_signup_parent">
-                <form action="#" id="form_signin_id">
+                <form action="home.html" id="form_signin_id" onsubmit="chick_signin_val(event)">
 
                     <div id="email" class="form_div_class">
-                        <input class="w3-input" type="email" placeholder="Email">
+                        <input class="w3-input" type="email" placeholder="Email" id="Email2" required required>
                     </div>
-                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" placeholder="Password"></div>
+                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" placeholder="Password" id="Password2" required onblur="check_validation_text('Password')" pattern="[a-zA-z0-9]{6,15}"></div>
                     <div id="signup_signin_buttons" class="form_div_class" style="margin-top: 25px;">
                         <input class="w3-input  submitcolor" type="submit" value="sign in">
                     </div>
@@ -76,7 +76,7 @@
 
 
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="../js/signup_signin.js"></script>
 </body>
 
 </html>
