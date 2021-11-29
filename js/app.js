@@ -31,7 +31,7 @@ fetch("../api/products.json")
   );
 
 // cart page
-const cartProducts = Array();
+let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
 function addToCart(purchaseButton) {
   const productId = purchaseButton.parentNode.attributes.key.value;
   const productCount = 1;
