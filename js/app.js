@@ -4,37 +4,107 @@
 const categoriesFilter = document.getElementById("categories-filter");
 const productsGrid = document.getElementById("products-grid");
 
-if (location.href.indexOf("products.html") > -1) {
+function getFilters() {
+  let queriedProductTitle = "",
+    queriedCategories = [],
+    queriedMaxPrice = 0;
+
   const searchQuery = location.search;
-  const searchTerms = searchQuery.split("&");
-  console.log(searchTerms);
+  if (searchQuery) {
+    const searchTerms = searchQuery.split("&");
+    for (const term of searchTerms) {
+      const termType = term.split("=")[0];
+      const termValue = term
+        .split("=")[1]
+        .replace(/\+/g, " ")
+        .replace(/\%27/, "'");
+
+      switch (termType) {
+        case "category":
+          queriedCategories.push(termValue);
+          break;
+
+        case "?search":
+          queriedProductTitle = termValue;
+          break;
+
+        case "priceRange":
+          queriedMaxPrice = parseInt(termValue);
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
+  return [queriedProductTitle, queriedCategories, queriedMaxPrice];
 }
 
-function displayProducts() {
-  fetch("../api/products.json")
-    .then((res) => res.json())
-    .then((productsData) =>
-      productsData.map((product) => {
-        //   console.log(product);
-        const item = document.createElement("div");
-        item.innerHTML = `
-      <div class ="grid-item" key="${product.id}">
-      <img class="products-img" src="${product.image}"/>
-        <p class="products-title fs-300">${
-          product.title.length > 40
-            ? product.title.substr(0, 40) + ".. "
-            : product.title
-        }</p>
+function createProductNode(id, image, title, price, rating) {
+  const item = document.createElement("div");
+  item.innerHTML = `
+      <div class ="grid-item" key="${id}">
+        <img class="products-img" src="${image}"/>
+        <p class="products-title fs-300">
+          ${title.length > 40 ? title.substr(0, 40) + ".. " : title}</p>
         <div class="products-price-rating flex">
-            <p class="products-price fs-400"><b>${product.price}</b>$</p>
-            <p class="products-rating flex fs-400">${
-              product.rating.rate
-            }<img src="../assets/Filled_star.png" /></p>
+          <p class="products-price fs-400">
+            <b>${price}</b>$
+          </p>
+          <p class="products-rating flex fs-400">
+            ${rating.rate}
+            <img src="../assets/Filled_star.png" />
+          </p>
         </div>
         <button class="products-add-to-cart" onclick="addToCart(this)">Add to cart</button>
       </div>`;
-        if (location.href.indexOf("products.html") > -1)
-          productsGrid.appendChild(item);
+  return item;
+}
+
+function filterProducts(productsData) {
+  // Get query paramaeters to tell if a user visit this page through search or direct url,
+  // and if it is a search, what are they searching for
+  const [queriedProductTitle, queriedCategories, queriedMaxPrice] =
+    getFilters();
+
+  // If user searched for a name find it
+  // console.log(queriedProductTitle);
+  if (queriedProductTitle.length > 0) {
+    productsData = productsData.filter((product) =>
+      product.title.toLowerCase().includes(queriedProductTitle.toLowerCase())
+    );
+  }
+
+  // If user applied a filter to select specific categories, only return these categories
+  if (queriedCategories.length > 0) {
+    productsData = productsData.filter(
+      (product) => queriedCategories.indexOf(product.category) > -1
+    );
+  }
+
+  // If user applied a filter to select max price, only return products with this price or above
+  if (queriedMaxPrice > 0) {
+    productsData = productsData.filter(
+      (product) => parseFloat(product.price) >= parseFloat(queriedMaxPrice)
+    );
+  }
+
+  return productsData;
+}
+
+function displayProducts() {
+  // Get unfiltered data from JSON products file
+  fetch("../api/products.json")
+    .then((res) => res.json())
+    .then((productsData) => filterProducts(productsData))
+    .then((filteredProducts) =>
+      filteredProducts.map((product) => {
+        const { id, image, title, price, rating, category } = product;
+        if (location.href.indexOf("products.html") > -1) {
+          productsGrid.appendChild(
+            createProductNode(id, image, title, price, rating)
+          );
+        }
       })
     );
 }
@@ -52,7 +122,6 @@ function addToCart(purchaseButton) {
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
-  console.log(cartProducts);
 }
 
 // Show cart products on cart page load
@@ -139,7 +208,7 @@ function showCart() {
         <p class="cart-product-price fs-400">Price: <b>${product.price}</b>$</p>
         <div class="cart-counter">
           <input type="number"
-          is="decimal-input"
+            is="decimal-input"
             min="1"
             max="99"
             step="1"
