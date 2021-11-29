@@ -55,21 +55,27 @@ proceedBtn.innerHTML =
 
 function showCart() {
   let currentCart = JSON.parse(localStorage.getItem("userCart"));
-  console.log(currentCart);
+
   for (purchase in currentCart) {
-    const productIndex = parseInt(currentCart[purchase].id);
-    // console.log(productIndex);
+    // To get the keys of the current products in user's cart
+    const productIndex = parseInt(currentCart[purchase].id) - 1;
+
+    // To get products data from products JSON file
     fetch("../api/products.json")
       .then((res) => res.json())
       .then((data) => {
         let product = data[productIndex];
-        let count =
-          data[productIndex].id - 1 === parseInt(currentCart[purchase].id)
-            ? currentCart[purchase].count
-            : 1;
-        // console.log(parseInt(currentCart[purchase].id));
-        // console.log(data[productIndex].id - 1);
-        //Very bad performance, preferably store products data in full instead
+
+        // get count of every product from local storage
+        // I DO NOT THINK IT IS THE OPTIMUM METHOD, If you have a better solution implement it.
+        let count = 0;
+        for (cartItem in currentCart) {
+          if (currentCart[cartItem].id == data[productIndex].id) {
+            count = currentCart[cartItem].count;
+          }
+        }
+
+        // Create UI that wraps this data in cart.html page as an order summary UI.
         const item = document.createElement("div");
         item.innerHTML = `
         <div class ="cart-product-card grid" key="${product.id}">
@@ -80,12 +86,16 @@ function showCart() {
             : product.title
         }</b>
         <p class="cart-product-price fs-400">Price: <b>${product.price}</b>$</p>
-        <p class="cart-product-count flex fs-400">count :${count}</p>
-        <p class="cart-product-total">Total: <b>${product.price}</b>$</p>
+        <p class="cart-product-count flex fs-400">count: <b>${count}</b></p>
+        <p class="cart-product-total">Total: <b>${
+          product.price * count
+        }</b>$</p>
         </div>
               <hr />`;
         if (location.href.indexOf("cart.html") > -1)
           visibleCartProducts.appendChild(item);
+
+        // Embed proceed to checkout after the loop over products end
         visibleCartProducts.appendChild(proceedBtn);
       });
   }
