@@ -68,7 +68,6 @@ function filterProducts(productsData) {
     getFilters();
 
   // If user searched for a name find it
-  // console.log(queriedProductTitle);
   if (queriedProductTitle.length > 0) {
     productsData = productsData.filter((product) =>
       product.title.toLowerCase().includes(queriedProductTitle.toLowerCase())
@@ -92,21 +91,38 @@ function filterProducts(productsData) {
   return productsData;
 }
 
+function handleEmptyPage(message) {
+  const messagePanel = document.createElement("div");
+  messagePanel.id = "no-products";
+  messagePanel.innerHTML = `${message}, take a look at our <a href="../html/products.html">products</a>`;
+  return messagePanel;
+}
+
 function displayProducts() {
-  // Get unfiltered data from JSON products file
+  // To handle empty products page if search term does not exist
+  const noProductsMessage = handleEmptyPage(
+    "It seems like there is no results for this search term"
+  );
+
+  // Get Filtered data from JSON products file
   fetch("../api/products.json")
     .then((res) => res.json())
     .then((productsData) => filterProducts(productsData))
-    .then((filteredProducts) =>
-      filteredProducts.map((product) => {
-        const { id, image, title, price, rating, category } = product;
-        if (location.href.indexOf("products.html") > -1) {
-          productsGrid.appendChild(
-            createProductNode(id, image, title, price, rating)
-          );
-        }
-      })
-    );
+    .then((filteredProducts) => {
+      if (filteredProducts.length > 0) {
+        filteredProducts.map((product) => {
+          const { id, image, title, price, rating, category } = product;
+          if (location.href.indexOf("products.html") > -1) {
+            productsGrid.appendChild(
+              createProductNode(id, image, title, price, rating)
+            );
+            console.log(productsGrid.childElementCount);
+          }
+        });
+      } else {
+        productsGrid.appendChild(noProductsMessage);
+      }
+    });
 }
 
 // cart page
