@@ -46,6 +46,7 @@
   --clr-dark: 55 56 60;
   --clr-accent: 255 203 5;
   --clr-white: 255 255 255;
+  --clr-danger: 255 0 0;
   /* font-sizes */
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 6.25rem;
@@ -576,6 +577,38 @@ select {
   grid-area: cart-product-total;
 }
 
+.cart-counter {
+  max-width: 100%;
+}
+.counter-button {
+  border: 0rem;
+  width: clamp(1rem, 30%, 2rem);
+  text-align: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.counter-input {
+  width: clamp(2rem, 100%, 4rem);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  border-color: rgb(var(--clr-dark) / 0.2);
+}
+
+.counter-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.cart-remove-product {
+  cursor: pointer;
+  color: rgb(var(--clr-danger));
+  outline: 2px solid rgb(var(--clr-danger));
+  background-color: transparent;
+  border-radius: 0.3rem;
+  border: 0;
+  padding: 0.4rem;
+  padding-inline: 0.5rem;
+}
 /* Home page *************************** aya */
 
 /*Nav bar and footer**/

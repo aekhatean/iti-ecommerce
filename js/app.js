@@ -53,6 +53,48 @@ const proceedBtn = document.createElement("div");
 proceedBtn.innerHTML =
   '<a id="cart-proceed" href="checkout.html">Proceed To Checkout</a>';
 
+// Prevent user from entering non-numbers to counter
+function validate(evt) {
+  var theEvent = evt || window.event;
+
+  // Handle paste
+  if (theEvent.type === "paste") {
+    key = evt.clipboardData.getData("text/plain");
+  } else {
+    // Handle key press
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode(key);
+  }
+  var regex = /[0-9]|\./;
+  if (!regex.test(key)) {
+    theEvent.returnValue = false;
+    if (theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+function updateCount(event, id) {
+  const value = event.target.value;
+  const cartProducts = JSON.parse(localStorage.getItem("userCart"));
+  for (productIndex in cartProducts) {
+    if (parseInt(cartProducts[productIndex].id) == id) {
+      cartProducts[productIndex].count = parseInt(value);
+      localStorage.setItem("userCart", JSON.stringify(cartProducts));
+    }
+  }
+}
+
+function removeFromCart(event, id) {
+  const cartProducts = JSON.parse(localStorage.getItem("userCart"));
+  for (productIndex in cartProducts) {
+    if (parseInt(cartProducts[productIndex].id) == id) {
+      cartProducts.splice(productIndex, 1);
+      localStorage.setItem("userCart", JSON.stringify(cartProducts));
+    }
+  }
+  event.target.parentNode.remove();
+}
+
+// Show cart products when user visits cart page
 function showCart() {
   let currentCart = JSON.parse(localStorage.getItem("userCart"));
 
@@ -86,11 +128,26 @@ function showCart() {
             : product.title
         }</b>
         <p class="cart-product-price fs-400">Price: <b>${product.price}</b>$</p>
-        <p class="cart-product-count flex fs-400">count: <b>${count}</b></p>
+        <div class="cart-counter">
+          <input type="number"
+          is="decimal-input"
+            min="1"
+            max="99"
+            step="1"
+            pattern="[1-9]"
+            onkeypress="validate(event)"
+            onchange="updateCount(event, ${product.id})"
+            value="${count}"
+            class="counter-input" />
+        </div>
+
         <p class="cart-product-total">Total: <b>${
           product.price * count
         }</b>$</p>
         </div>
+        <button class="cart-remove-product"
+        onclick="removeFromCart(event, ${product.id})"
+        >Remove from cart</button>
               <hr />`;
         if (location.href.indexOf("cart.html") > -1)
           visibleCartProducts.appendChild(item);
