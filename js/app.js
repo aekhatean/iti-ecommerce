@@ -188,8 +188,53 @@ function removeFromCart(event, id) {
   event.target.parentNode.remove();
 }
 
+// Create product card for cart page
+function createCartProductNode(id, image, title, price, count) {
+  // Create UI that wraps this data in cart.html page as an order summary UI.
+  const item = document.createElement("div");
+  item.innerHTML = `<div class ="cart-product-card grid" key="${id}">
+        <img class="cart-product-img" src="${image}"/>
+        <b class="cart-product-title fs-300">
+        ${title.length > 40 ? title.substr(0, 40) + ".. " : title}
+        </b>
+        <p class="cart-product-price fs-400">
+          Price: <b>${price}</b>$
+        </p>
+        <div class="cart-counter">
+          <input
+            type="number"
+            is="decimal-input"
+            min="1"
+            max="99"
+            step="1"
+            pattern="[1-9]"
+            onkeypress="validate(event)"
+            onchange="updateCount(event, ${id})"
+            value="${count}"
+            class="counter-input"
+          />
+        </div>
+  
+          <p class="cart-product-total">
+            Total: <b>${price * count}</b>$
+          </p>
+        </div>
+        <button
+          class="cart-remove-product"
+          onclick="removeFromCart(event, ${id})"
+        >
+          Remove from cart
+        </button>
+           <hr />`;
+
+  return item;
+}
+
 // Show cart products when user visits cart page
 function showCart() {
+  // To handle empty products page if search term does not exist
+  const noProductsMessage = handleEmptyPage("It seems like your cart is empty");
+
   let currentCart = JSON.parse(localStorage.getItem("userCart"));
 
   for (purchase in currentCart) {
@@ -200,54 +245,29 @@ function showCart() {
     fetch("../api/products.json")
       .then((res) => res.json())
       .then((data) => {
-        let product = data[productIndex];
+        console.log(data[productIndex]);
+        if (currentCart.length > 0) {
+          let { id, image, title, price } = data[productIndex];
 
-        // get count of every product from local storage
-        // I DO NOT THINK IT IS THE OPTIMUM METHOD, If you have a better solution implement it.
-        let count = 0;
-        for (cartItem in currentCart) {
-          if (currentCart[cartItem].id == data[productIndex].id) {
-            count = currentCart[cartItem].count;
+          // get count of every product from local storage
+          // I DO NOT THINK IT IS THE OPTIMUM METHOD, If you have a better solution implement it.
+          let count = 0;
+          for (cartItem in currentCart) {
+            if (currentCart[cartItem].id == data[productIndex].id) {
+              count = currentCart[cartItem].count;
+            }
           }
+
+          if (location.href.indexOf("cart.html") > -1)
+            visibleCartProducts.appendChild(
+              createCartProductNode(id, image, title, price, count)
+            );
+
+          // Embed proceed to checkout after the loop over products end
+          visibleCartProducts.appendChild(proceedBtn);
+        } else {
+          visibleCartProducts.appendChild(noProductsMessage);
         }
-
-        // Create UI that wraps this data in cart.html page as an order summary UI.
-        const item = document.createElement("div");
-        item.innerHTML = `
-        <div class ="cart-product-card grid" key="${product.id}">
-        <img class="cart-product-img" src="${product.image}"/>
-        <b class="cart-product-title fs-300">${
-          product.title.length > 40
-            ? product.title.substr(0, 40) + ".. "
-            : product.title
-        }</b>
-        <p class="cart-product-price fs-400">Price: <b>${product.price}</b>$</p>
-        <div class="cart-counter">
-          <input type="number"
-            is="decimal-input"
-            min="1"
-            max="99"
-            step="1"
-            pattern="[1-9]"
-            onkeypress="validate(event)"
-            onchange="updateCount(event, ${product.id})"
-            value="${count}"
-            class="counter-input" />
-        </div>
-
-        <p class="cart-product-total">Total: <b>${
-          product.price * count
-        }</b>$</p>
-        </div>
-        <button class="cart-remove-product"
-        onclick="removeFromCart(event, ${product.id})"
-        >Remove from cart</button>
-              <hr />`;
-        if (location.href.indexOf("cart.html") > -1)
-          visibleCartProducts.appendChild(item);
-
-        // Embed proceed to checkout after the loop over products end
-        visibleCartProducts.appendChild(proceedBtn);
       });
   }
 }
