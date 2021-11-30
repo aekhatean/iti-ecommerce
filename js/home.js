@@ -67,17 +67,19 @@ fetch("../api/products.json")
       }
     }
   });
-
 function addToCart(purchaseButton) {
   const id = purchaseButton.attributes.key.value;
   const productCount = 1;
+
   const PurchasedProduct = {
     id: id,
     count: productCount,
   };
+
   cartProducts.push(PurchasedProduct);
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
-  console.log(id);
+  cart_count = productCount;
+  handleCartNotification();
 }

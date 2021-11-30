@@ -1,92 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/app.js" defer></script>
-    <title>Ecommerce | sign up</title>
-</head>
+    <title>🐝sign up</title>
+  </head>
 
-<body>
-
-
-
+  <body>
     <div class="mainscreen_sign">
+      <!-- ////////////left part////////////////// -->
+      <div class="mainscreen_leftpart_sign">
+        <img src="../resources/bee.jpg" alt="bee logo" class="leftpart_logo" />
+      </div>
 
-        <!-- ////////////left part////////////////// -->
-        <div class="mainscreen_leftpart_sign">
+      <!-- ////////////right part////////////////// -->
+      <div class="mainscreen_rightpart_sign">
+        <!-- <div class="title">Sign up</div> -->
+        <div id="title" class="form_div_class">
+          <button
+            class="form_div_class_2items title_button_color w3-input"
+            value="signin"
+          >
+            <span class="google_icon"
+              ><img
+                src="../resources/google.png"
+                alt="google"
+                width="20px"
+                height="20px"
+            /></span>
+            <span class="text">continue with Google</span>
+          </button>
 
-            <img src="../resources/bee.jpg" alt="bee logo" class="leftpart_logo">
-
+          <button
+            class="form_div_class_2items title_button_color w3-input"
+            value="signin"
+          >
+            <span class="facebook_icon"
+              ><span class="google_icon"
+                ><img
+                  src="../resources/facebook.png"
+                  alt="google"
+                  width="20px"
+                  height="20px" /></span
+            ></span>
+            <span class="text">continue with Facebook</span>
+          </button>
         </div>
 
+        <!-- ///////////bar between/////////// -->
 
-
-        <!-- ////////////right part////////////////// -->
-        <div class="mainscreen_rightpart_sign">
-            <!-- <div class="title">Sign up</div> -->
-            <div id="title" class="form_div_class">
-                <button class=" form_div_class_2items title_button_color w3-input" value="signin">
-                    <span class="google_icon"><img src="../resources/google.png" alt="google" width="20px" height="20px"></span>
-                     <span class="text">continue with Google</span>
-                </button>
-
-                <button class=" form_div_class_2items title_button_color w3-input" value="signin">
-                    <span class="facebook_icon"><span class="google_icon"><img src="../resources/facebook.png" alt="google" width="20px" height="20px"></span></span>
-                     <span class="text">continue with Facebook</span>
-                </button>
-            </div>
-
-            <!-- ///////////bar between/////////// -->
-
-            <div class="bar_signup">
-                <span class="f_bar"></span>
-                <span>OR</span>
-                <span class="f_bar"></span>
-            </div>
-            <!-- /////////////////////// -->
-            <div class="form_signup_parent">
-                <form action="home.html" id="form_signup_id">
-                    <div id="f_l_name" class="form_div_class">
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="First Name" id="F_name" required>
-                        <input class="w3-input form_div_class_2items" type="text" placeholder="Last Name" id="L_name" required onblur="check_validation_text('L_name')" pattern="[a-zA-z]{3,15}">
-                    </div>
-                    <div id="u_name" class="form_div_class">
-                        <input class="w3-input" type="text" placeholder="User Name" id="Username" required onblur="check_validation_text('Username')" pattern="[a-zA-z]{3,15}">
-                    </div>
-                    <div id="phone" class="form_div_class">
-                        <input class="w3-input" type="tel" placeholder="Phone" id="Phone" required onblur="check_validation_text('Phone')" pattern="[0-9]{11}">
-                    </div>
-                    <div id="city_street" class="form_div_class">
-                        <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9]{3,15}">
-                        <input class="w3-input form_div_class_2items" type="text" id="Street" placeholder="Street">
-                    </div>
-                    <div id="email" class="form_div_class">
-                        <input class="w3-input" type="email" placeholder="Email" id="Email" required>
-                    </div>
-                    <div id="pass" class="form_div_class"><input class="w3-input" type="password" id="Password" placeholder="Password" required onblur="check_validation_text('Password')" pattern="[a-zA-z0-9]{6,15}"></div>
-                    <div id="signup_signin_buttons" class="form_div_class" style="margin-top: 25px;">
-                        <input class="w3-input  submitcolor" type="submit" value="sign up" onclick="submmition()">
-                    </div>
-                </form>
-            </div>
-            <div class="signlink">
-                <span style="color: black;">Already have an account?</span>
-                <a href="signin.html" style="color: rgb(255, 203, 5);">Sign in </a>
-            </div>
-
-
+        <div class="bar_signup">
+          <span class="f_bar"></span>
+          <span>OR</span>
+          <span class="f_bar"></span>
         </div>
+        <!-- /////////////////////// -->
+        <div class="form_signup_parent">
+          <form action="home.html" id="form_signup_id">
+            <div id="f_l_name" class="form_div_class">
+              <input
+                class="w3-input form_div_class_2items"
+                type="text"
+                placeholder="First Name"
+                id="F_name"
+                required
+              />
+              <input
+                class="w3-input form_div_class_2items"
+                type="text"
+                placeholder="Last Name"
+                id="L_name"
+                required
+                onblur="check_validation_text('L_name')"
+                pattern="[a-zA-z]{3,15}"
+              />
+            </div>
+            <div id="u_name" class="form_div_class">
+              <input
+                class="w3-input"
+                type="text"
+                placeholder="User Name"
+                id="Username"
+                required
+                onblur="check_validation_text('Username')"
+                pattern="[a-zA-z]{3,15}"
+              />
+            </div>
+            <div id="phone" class="form_div_class">
+              <input
+                class="w3-input"
+                type="tel"
+                placeholder="Phone"
+                id="Phone"
+                required
+                onblur="check_validation_text('Phone')"
+                pattern="[0-9]{11}"
+              />
+            </div>
+            <div id="city_street" class="form_div_class">
+              <!-- <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9]{3,15}"> -->
+              <select
+                class="w3-input form_div_class_2items"
+                id="City"
+                placeholder="City"
+                required
+              >
+                <option value="Cairo">Cairo</option>
+                <option value="Alexandria">Alexandria</option>
+                <option value="Giza">Giza</option>
+                <option value="Qalyubia">Qalyubia</option>
+                <option value="Port Said">Port Said</option>
+                <option value="Suez">Suez</option>
+                <option value="Gharbia">Gharbia</option>
+                <option value="Luxor">Luxor</option>
+                <option value="Mansoura">Mansoura</option>
+                <option value="Asyut">Asyut</option>
+                <option value="Ismailia">Ismailia</option>
+                <option value="Faiyum">Faiyum</option>
+                <option value="Sharqia">Sharqia</option>
+                <option value="Damietta">Damietta</option>
+                <option value="Aswan">Aswan</option>
+                <option value="Minya">Minya</option>
+                <option value="Beheira">Beheira</option>
+                <option value="Beni Suef">Beni Suef</option>
+                <option value="Red Sea">Red Sea</option>
+                <option value="Qena">Qena</option>
+                <option value="Sohag">Sohag</option>
+                <option value="North Sinai">North Sinai</option>
+              </select>
 
-
+              <!-- 
+                      /////////////////////////////////////// -->
+              <input
+                class="w3-input form_div_class_2items"
+                type="text"
+                id="Street"
+                placeholder="Street"
+              />
+            </div>
+            <div id="email" class="form_div_class">
+              <input
+                class="w3-input"
+                type="email"
+                placeholder="Email"
+                id="Email"
+                required
+              />
+            </div>
+            <div id="pass" class="form_div_class">
+              <input
+                class="w3-input"
+                type="password"
+                id="Password"
+                placeholder="Password"
+                required
+                onblur="check_validation_text('Password')"
+                pattern="[a-zA-z0-9]{6,15}"
+              />
+            </div>
+            <div
+              id="signup_signin_buttons"
+              class="form_div_class"
+              style="margin-top: 25px"
+            >
+              <input
+                class="w3-input submitcolor"
+                type="submit"
+                value="sign up"
+                onclick="submmition(event)"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="signlink">
+          <span style="color: black">Already have an account?</span>
+          <a href="signin.html" style="color: rgb(255, 203, 5)">Sign in </a>
+        </div>
+      </div>
     </div>
     <script src="../js/signup_signin.js"></script>
-
-</body>
-
+  </body>
 </html>

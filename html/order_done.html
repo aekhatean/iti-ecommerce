@@ -1,46 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <title>Document</title>
-</head>
+    <title>🐝Bee</title>
+  </head>
 
-<body>
-
+  <body>
     <div class="mian_cheackout">
-        <div class="child_cheackout">
-            <div class="proces">
-                <div class="proces_cart" style="border-radius: 100px;height: 60px;width: 60px;background-color: rgb(255, 203, 5);">
-                    <img src="../resources/cart2.png" alt="cart" width="60px" height="60px">
-                </div>
-                <div class="linespace"></div>
-                <div class="cheackout_proces" style="border-radius: 100px;height: 60px;width: 60px;background-color: rgb(255, 203, 5);"><img src="../resources/food-delivery.png" width="60px" height="60px"></div>
-                <div class="linespace"></div>
-                <div class="done_proces" style="border-radius: 100px;height: 60px;width: 60px;background-color: rgb(255, 203, 5);"><img src="../resources/deliver.png" width="60px" height="60px"></div>
-            </div>
+      <div class="child_cheackout">
+        <div class="proces">
+          <div
+            class="proces_cart"
+            style="
+              border-radius: 100px;
+              height: 60px;
+              width: 60px;
+              background-color: rgb(255, 203, 5);
+            "
+          >
+            <img
+              src="../resources/cart2.png"
+              alt="cart"
+              width="60px"
+              height="60px"
+            />
+          </div>
+          <div class="linespace"></div>
+          <div
+            class="cheackout_proces"
+            style="
+              border-radius: 100px;
+              height: 60px;
+              width: 60px;
+              background-color: rgb(255, 203, 5);
+            "
+          >
+            <img
+              src="../resources/food-delivery.png"
+              width="60px"
+              height="60px"
+            />
+          </div>
+          <div class="linespace"></div>
+          <div
+            class="done_proces"
+            style="
+              border-radius: 100px;
+              height: 60px;
+              width: 60px;
+              background-color: rgb(255, 203, 5);
+            "
+          >
+            <img src="../resources/deliver.png" width="60px" height="60px" />
+          </div>
+        </div>
 
-            <div class="correct">
-                <img src="../resources/correct.png" alt="corect" style="width: 60%; height: 60%;display: block">
-            </div>
+        <div class="correct">
+          <img
+            src="../resources/correct.png"
+            alt="corect"
+            style="width: 60%; height: 60%; display: block"
+          />
+        </div>
 
             <div id="signup_signin_buttons" class="form_div_class_checkout" style="margin-top: 5px; width: 90%;">
-                <button class="w3-input  submitcolor" type="submit" value="ok"> <a href="home.html" style="text-decoration: none;">Finish</a></button>
+                <button class="w3-input  submitcolor" type="submit" value="ok" onclick="delete_cart()"> <a href="home.html" style="text-decoration: none;">Finish</a></button>
             </div>
             <div style="height: 20px;"></div>
         </div>
+        <div style="height: 20px"></div>
+      </div>
 
-        <!-- /////////////////////////////// -->
+      <!-- /////////////////////////////// -->
     </div>
 
-
-
-
     <script src="../js/checkout.js"></script>
-</body>
-
+  </body>
 </html>
