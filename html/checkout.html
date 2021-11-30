@@ -8,30 +8,23 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../css/style.css" />
     <title>Checkout</title>
- 
+
 </head>
 
 <body>
-   <!-- #region Nav-->
-   <nav id="nav" class="bg-dark txt-white">
-    <div id="nav-logo">BeeMart🐝</div>
-    <div id="nav-list">
-      <img
-        onclick="showNav()"
-        onblur="hideNav()"
-        class="hide"
-        src="../assets/nav_list.svg"
-        alt="nav_list"
-      />
-      <div id="nav-links" class="">
-        <a href="./home.html">Home</a>
+    <!-- #region Nav-->
+    <nav id="nav" class="bg-dark txt-white">
+        <div id="nav-logo">BeeMart🐝</div>
+        <div id="nav-list">
+            <img onclick="showNav()" onblur="hideNav()" class="hide" src="../assets/nav_list.svg" alt="nav_list" />
+            <div id="nav-links" class="">
+                <a href="./home.html">Home</a>
 
-        <a href="./products.html">Products</a>
+                <a href="./products.html">Products</a>
 
-        <a href="#about">About us</a>
+                <a href="#about">About us</a>
 
-        <a href="./products.html" class="flexing-row"
-          ><span>Search</span>
+                <a href="./products.html" class="flexing-row"><span>Search</span>
           <img
             class="icon"
             src="../assets/search.svg"
@@ -39,18 +32,17 @@
           />
         </a>
 
-        <a href="./cart.html" class="flexing-row">
-          <span>Cart</span>
-          <img class="icon" src="../assets/cart.svg" alt="nav_icon_cart" />
-        </a>
+                <a href="./cart.html" class="flexing-row">
+                    <span>Cart</span>
+                    <img class="icon" src="../assets/cart.svg" alt="nav_icon_cart" />
+                </a>
 
-        <a id="nav-signin" href="./signin.html">
-          <span id="authed-username">Please</span><span> Sign in</span></a
-        >
-      </div>
-    </div>
-  </nav>
-  <!-- #endregion -->
+                <a id="nav-signin" href="./signin.html">
+                    <span id="authed-username">Please</span><span> Sign in</span></a>
+            </div>
+        </div>
+    </nav>
+    <!-- #endregion -->
 
     <div class="mian_cheackout">
         <div class="child_cheackout">
@@ -80,14 +72,38 @@
                     <input class="w3-input" type="tel" placeholder="Phone" id="Phone" required onblur="check_validation_text('Phone')" pattern="[0-9]{11}">
                 </div>
                 <div id="city_street" class="form_div_class_checkout">
-                    <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9 ]{3,15}">
+                    <select class="w3-input form_div_class_2items" id="City" placeholder="City" required>
+                        <option value="Cairo">Cairo</option>
+                        <option value="Alexandria">Alexandria</option>
+                        <option value="Giza">Giza</option>
+                        <option value="Qalyubia">Qalyubia</option>
+                        <option value="Port Said">Port Said</option>
+                        <option value="Suez">Suez</option>
+                        <option value="Gharbia">Gharbia</option>
+                        <option value="Luxor">Luxor</option>
+                        <option value="Mansoura">Mansoura</option>
+                        <option value="Asyut">Asyut</option>
+                        <option value="Ismailia">Ismailia</option>
+                        <option value="Faiyum">Faiyum</option>
+                        <option value="Sharqia">Sharqia</option>
+                        <option value="Damietta">Damietta</option>
+                        <option value="Aswan">Aswan</option>
+                        <option value="Minya">Minya</option>
+                        <option value="Beheira">Beheira</option>
+                        <option value="Beni Suef">Beni Suef</option>
+                        <option value="Red Sea">Red Sea</option>
+                        <option value="Qena">Qena</option>
+                        <option value="Sohag">Sohag</option>
+                        <option value="North Sinai">North Sinai</option>
+                    
+                    </select>
                     <input class="w3-input form_div_class_2items" type="text" id="Street" placeholder="Street">
                 </div>
                 <div id="email" class="form_div_class_checkout">
                     <input class="w3-input" type="email" placeholder="Email" id="Email" required>
                 </div>
                 <div id="signup_signin_buttons" class="form_div_class_checkout" style="margin-top: 25px; width: 90%;">
-                    <input class="w3-input  submitcolor" type="submit" value="ok" onclick="submmition()">
+                    <input class="w3-input  submitcolor" type="submit" value="ok" onclick="submmition(event)">
                 </div>
                 <div style="height: 20px;"></div>
 

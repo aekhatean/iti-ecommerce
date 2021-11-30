@@ -63,7 +63,41 @@
                         <input class="w3-input" type="tel" placeholder="Phone" id="Phone" required onblur="check_validation_text('Phone')" pattern="[0-9]{11}">
                     </div>
                     <div id="city_street" class="form_div_class">
-                        <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9]{3,15}">
+
+                        <!-- <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9]{3,15}"> -->
+                        <select class="w3-input form_div_class_2items" id="City" placeholder="City" required>
+    <option value="Cairo">Cairo</option>
+    <option value="Alexandria">Alexandria</option>
+    <option value="Giza">Giza</option>
+    <option value="Qalyubia">Qalyubia</option>
+    <option value="Port Said">Port Said</option>
+    <option value="Suez">Suez</option>
+    <option value="Gharbia">Gharbia</option>
+    <option value="Luxor">Luxor</option>
+    <option value="Mansoura">Mansoura</option>
+    <option value="Asyut">Asyut</option>
+    <option value="Ismailia">Ismailia</option>
+    <option value="Faiyum">Faiyum</option>
+    <option value="Sharqia">Sharqia</option>
+    <option value="Damietta">Damietta</option>
+    <option value="Aswan">Aswan</option>
+    <option value="Minya">Minya</option>
+    <option value="Beheira">Beheira</option>
+    <option value="Beni Suef">Beni Suef</option>
+    <option value="Red Sea">Red Sea</option>
+    <option value="Qena">Qena</option>
+    <option value="Sohag">Sohag</option>
+    <option value="North Sinai">North Sinai</option>
+
+</select>
+
+
+
+
+
+
+                        <!-- 
+                        /////////////////////////////////////// -->
                         <input class="w3-input form_div_class_2items" type="text" id="Street" placeholder="Street">
                     </div>
                     <div id="email" class="form_div_class">
@@ -71,7 +105,7 @@
                     </div>
                     <div id="pass" class="form_div_class"><input class="w3-input" type="password" id="Password" placeholder="Password" required onblur="check_validation_text('Password')" pattern="[a-zA-z0-9]{6,15}"></div>
                     <div id="signup_signin_buttons" class="form_div_class" style="margin-top: 25px;">
-                        <input class="w3-input  submitcolor" type="submit" value="sign up" onclick="submmition()">
+                        <input class="w3-input  submitcolor" type="submit" value="sign up" onclick="submmition(event)">
                     </div>
                 </form>
             </div>
