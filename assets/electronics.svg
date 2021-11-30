@@ -1,0 +1,73 @@
+ <svg
+              class="categories-image"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 387 387"
+              style="enable-background: new 0 0 387 387"
+              xml:space="preserve"
+            >
+              <g>
+                <path
+                  style="fill: #333e48"
+                  d="M364.351,287.506V97c0-13.75-11.25-25-25-25h-291.7c-13.75,0-25,11.25-25,25v190.506
+             L364.351,287.506L364.351,287.506z"
+                />
+                <rect
+                  x="42.651"
+                  y="92"
+                  style="fill: #1e252b"
+                  width="301.699"
+                  height="195.506"
+                />
+                <polygon
+                  style="opacity: 0.05; fill: #a4a9ad; enable-background: new"
+                  points="241.438,92 45.932,287.506 232.807,287.506 
+             344.351,175.962 344.351,92 	"
+                />
+                <path
+                  style="fill: #c3c6c8"
+                  d="M387,280c0,19.33-15.67,35-35,35H35c-19.33,0-35-15.67-35-35H387z"
+                />
+                <path
+                  style="fill: #7d868c"
+                  d="M230.5,280c0,4.146-3.361,7.506-7.507,7.506h-58.987c-4.146,0-7.506-3.36-7.506-7.506H230.5z"
+                />
+                <g>
+                  <g>
+                    <path
+                      style="fill: #1e252b"
+                      d="M198.273,78.472c0-0.606-0.496-1.102-1.103-1.102h-7.337c-0.607,0-1.102,0.496-1.102,1.102v7.338
+                 c0,0.605,0.495,1.102,1.102,1.102h7.337c0.606,0,1.103-0.496,1.103-1.102V78.472z"
+                    />
+                    <circle
+                      style="fill: #005cb9"
+                      cx="193.501"
+                      cy="82.141"
+                      r="3.581"
+                    />
+                    <circle
+                      style="fill: #1e252b"
+                      cx="193.501"
+                      cy="82.141"
+                      r="1.884"
+                    />
+                  </g>
+                  <circle
+                    style="fill: #1e252b"
+                    cx="182.001"
+                    cy="82.141"
+                    r="1.134"
+                  />
+                  <circle
+                    style="fill: #1e252b"
+                    cx="205"
+                    cy="82.141"
+                    r="1.134"
+                  />
+                </g>
+              </g>
+            </svg>
