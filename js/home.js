@@ -1,4 +1,3 @@
-// import { handleCartNotification, cart_count } from "../modules/index.js";
 /**Global variables */
 var home_product = document.getElementById("products-grid");
 let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
@@ -82,19 +81,5 @@ function addToCart(purchaseButton) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
   cart_count = productCount;
+  handleCartNotification();
 }
-// let cart_count = 0;
-
-// const handleCartNotification = () => {
-//   const counter_span = document.getElementById("cart_count");
-
-//   let counting_array = [];
-//   JSON.parse(localStorage.getItem("userCart")).map((item) =>
-//     counting_array.push(parseInt(item.count))
-//   );
-//   cart_count = counting_array.reduce((a, b) => a + b, 0);
-//   console.log(cart_count);
-//   counter_span.innerText = cart_count;
-// };
-
-// window.onload = handleCartNotification();
