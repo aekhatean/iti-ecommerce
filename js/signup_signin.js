@@ -18,11 +18,11 @@ Phone.oninvalid = function(event) {
     event.target.setCustomValidity('phone number should only contain numbers length is = 11 number . e.g. john');
 }
 City.oninvalid = function(event) {
-    event.target.setCustomValidity('Cith should only contain  letters only and length more than 3');
-}
-Street.oninvalid = function(event) {
-    event.target.setCustomValidity('Street should only contain  letters only and length more than 3');
-}
+        event.target.setCustomValidity('Cith should only contain  letters only and length more than 3');
+    }
+    // Street.oninvalid = function(event) {
+    //     event.target.setCustomValidity('Street should only contain  letters only and length more than 3');
+    // }
 Email.oninvalid = function(event) {
     event.target.setCustomValidity('Email should  contain @');
 }
@@ -31,8 +31,10 @@ Password.oninvalid = function(event) {
 }
 
 function submmition() {
-
-    localStorage.setItem("user", [document.getElementById("F_name").value, document.getElementById("L-name").value, document.getElementById("Username").value, document.getElementById("Phone").value, document.getElementById("City").value, document.getElementById("Email").value, document.getElementById("Password").value])
+    alert("ok1")
+    var x = [{ F_name: document.getElementById("F_name").value, L_name: document.getElementById("L_name").value, Username: document.getElementById("Username").value, Phone: document.getElementById("Phone").value, City: document.getElementById("City").value, Street: document.getElementById("Street").value, Email: document.getElementById("Email").value, Password: document.getElementById("Password").value }];
+    alert("x")
+    localStorage.setItem("allUsers", JSON.stringify(x))
 
 
 }
