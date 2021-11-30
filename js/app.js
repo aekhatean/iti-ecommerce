@@ -126,6 +126,7 @@ function displayProducts() {
 }
 
 // cart page
+const domChanged = new Event("removedEle");
 
 let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
 function addToCart(purchaseButton) {
@@ -140,13 +141,6 @@ function addToCart(purchaseButton) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
 }
-
-// Show cart products on cart page load
-const visibleCartProducts = document.getElementById("cart-products-section");
-
-const proceedBtn = document.createElement("div");
-proceedBtn.innerHTML =
-  '<a id="cart-proceed" href="checkout.html">Proceed To Checkout</a>';
 
 // Prevent user from entering non-numbers to counter
 function validate(evt) {
@@ -232,22 +226,33 @@ function createCartProductNode(id, image, title, price, count) {
 }
 
 // Show cart products when user visits cart page
+const visibleCartProducts = document.getElementById("cart-products-section");
+
+const proceedBtn = document.createElement("a");
+proceedBtn.id = "cart-proceed";
+proceedBtn.href = "checkout.html";
+proceedBtn.innerHTML = "Proceed To Checkout";
+
 function showCart() {
   // To handle empty products page if search term does not exist
   const noProductsMessage = handleEmptyPage("It seems like your cart is empty");
 
   let currentCart = JSON.parse(localStorage.getItem("userCart"));
 
-  for (purchase in currentCart) {
-    // To get the keys of the current products in user's cart
-    const productIndex = parseInt(currentCart[purchase].id) - 1;
+  document.getElementById("cart-page").onclick = function () {
+    currentCart = JSON.parse(localStorage.getItem("userCart"));
+  };
 
-    // To get products data from products JSON file
-    fetch("../api/products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data[productIndex]);
-        if (currentCart.length > 0) {
+  if (currentCart.length > 0) {
+    for (purchase in currentCart) {
+      // To get the keys of the current products in user's cart
+      const productIndex = parseInt(currentCart[purchase].id) - 1;
+
+      // To get products data from products JSON file
+      fetch("../api/products.json")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(currentCart);
           let { id, image, title, price } = data[productIndex];
 
           // get count of every product from local storage
@@ -259,16 +264,16 @@ function showCart() {
             }
           }
 
-          if (location.href.indexOf("cart.html") > -1)
+          if (location.href.indexOf("cart.html") > -1) {
             visibleCartProducts.appendChild(
               createCartProductNode(id, image, title, price, count)
             );
-
-          // Embed proceed to checkout after the loop over products end
-          visibleCartProducts.appendChild(proceedBtn);
-        } else {
-          visibleCartProducts.appendChild(noProductsMessage);
-        }
-      });
+            // Embed proceed to checkout after the loop over products end
+            visibleCartProducts.appendChild(proceedBtn);
+          }
+        });
+    }
+  } else {
+    visibleCartProducts.appendChild(noProductsMessage);
   }
 }
