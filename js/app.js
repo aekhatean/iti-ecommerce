@@ -45,8 +45,8 @@ function createProductNode(id, image, title, price, rating) {
   item.innerHTML = `
       <div class ="grid-item" key="${id}">
         <img class="products-img" src="${image}"/>
-        <p class="products-title fs-300">
-          ${title.length > 40 ? title.substr(0, 40) + ".. " : title}</p>
+        <a class="products-title fs-300" href='./product.html?id=${id}'>
+          ${title.length > 40 ? title.substr(0, 40) + ".. " : title}</a>
         <div class="products-price-rating flex">
           <p class="products-price fs-400">
             <b>${price}</b>$
@@ -126,6 +126,7 @@ function displayProducts() {
 }
 
 // cart page
+
 let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
 function addToCart(purchaseButton) {
   const productId = purchaseButton.parentNode.attributes.key.value;

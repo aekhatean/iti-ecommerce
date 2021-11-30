@@ -16,6 +16,10 @@ var product_description = document.getElementsByClassName(
   "product-description"
 )[1];
 
+var cartBtn = document.getElementById("add_cart_btn");
+
+let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
+
 //fetch data by id
 
 window.onload = function () {
@@ -39,6 +43,7 @@ function getProduct(id) {
       product_count.innerHTML = "<b>In Stock: </b>" + product.rating.count;
       product_category.innerHTML = "<b>Category: </b>" + product.category;
       product_description.innerHTML = product.description;
+      cartBtn.setAttribute("key", id);
     });
 }
 
@@ -67,7 +72,8 @@ fetch("../api/products.json")
         price_rate.classList.add("flex");
 
         //create p title
-        var title_p = document.createElement("p");
+        var title_p = document.createElement("a");
+        title_p.href = "./product.html?id=" + data[p].id;
         title_p.classList.add("products-title");
         title_p.classList.add("fs-300");
         title_p.innerHTML = data[p].title;
@@ -93,6 +99,9 @@ fetch("../api/products.json")
         add_to_cart_btn.classList.add("products-add-to-cart");
         add_to_cart_btn.classList.add("bg-light");
         add_to_cart_btn.innerHTML = "Add To Cart";
+        add_to_cart_btn.setAttribute("key", data[p].id);
+
+        add_to_cart_btn.setAttribute("onclick", "addToCart(this)");
 
         //apending
         home_product.appendChild(grid_item);
@@ -104,14 +113,24 @@ fetch("../api/products.json")
       }
     }
   });
-function showNav() {
-  document.getElementById("nav-links").style.display = "flex";
-}
-function hideNav() {
-  setTimeout(hide, 500);
-}
 
-function hide() {
-  document.getElementsByClassName("hide")[0].style.display = "block";
-  document.getElementById("nav-links").style.display = "none";
+//add to cart handle
+
+// add_product_form.onsubmit(function (ele) {
+//   event.preventDefault();
+//   console.log(ele);
+// });
+function addToCart(purchaseForm) {
+  event.preventDefault();
+  const id = purchaseForm.childNodes[1].attributes.key.value;
+  const productCount = purchaseForm.childNodes[3].value;
+  const PurchasedProduct = {
+    id: id,
+    count: productCount,
+  };
+  cartProducts.push(PurchasedProduct);
+  if (cartProducts.length > 0) {
+    localStorage.setItem("userCart", JSON.stringify(cartProducts));
+  }
+  console.log(purchaseForm.childNodes[3].value);
 }

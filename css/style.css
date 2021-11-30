@@ -778,7 +778,7 @@ hr {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #nav-links a,
@@ -788,6 +788,7 @@ hr {
   padding: 16px;
   color: inherit;
   text-decoration: none;
+  margin: auto;
 }
 
 #nav-links a:hover,
@@ -798,7 +799,9 @@ hr {
 #nav-logo {
   padding: 16px;
   margin-left: 1em;
-  justify-self: center;
+  margin: auto;
+  justify-self: flex-start;
+  align-self: flex-start;
 }
 
 .icon {
@@ -806,7 +809,14 @@ hr {
   height: fit-content;
   margin-left: 1rem;
 }
-
+#nav-list {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+  padding: auto;
+  margin: auto;
+}
 #nav-signin {
   margin-left: 1rem;
 }
@@ -817,6 +827,7 @@ hr {
   flex-direction: row;
   justify-content: space-between;
   padding-left: 3rem;
+  padding: 3rem;
 }
 
 #about {
@@ -826,7 +837,8 @@ hr {
 .hide {
   align-self: center;
   margin-right: 10px;
-  display: none;
+  /* display: none; */
+  visibility: hidden;
 }
 
 /*Header**/
@@ -920,7 +932,10 @@ hr {
 .headline {
   margin-left: 2rem;
 }
-
+.anchor_style {
+  text-decoration: none;
+  color: rgb(var(--clr-black));
+}
 .categories-headline {
   text-align: center;
 }
@@ -929,19 +944,36 @@ hr {
   max-width: 80%;
   margin: auto;
 }
-
-@media only screen and (max-width: 57em) {
+.flexing-row {
+  display: flex !important ;
+  flex-direction: row !important;
+  margin: auto !important;
+}
+@media only screen and (max-width: 60em) {
   /* For tablets: */
   #nav-links {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-content: flex-end;
   }
-  .hide {
-    display: block;
-  }
-}
 
-/*Product Page*/
+  .hide {
+    visibility: visible;
+    align-self: flex-end;
+  }
+
+  /* .icon {
+    margin: auto;
+    } */
+  #nav-list {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: flex-end;
+    align-content: flex-end;
+  }
+} /*Product Page*/
 
 .product-description {
   max-width: 100%;

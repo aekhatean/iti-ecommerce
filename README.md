@@ -19,6 +19,8 @@ This project is part of our participation in ITI's Intensive Trainnig Program.
 
 ## Getting Started
 
+- We highly recommend using Vscode's live server extension to run this project.
+
 ### Dependencies
 
 - This project has no required dependencies
