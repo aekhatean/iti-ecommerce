@@ -38,3 +38,12 @@ function submmition(event) {
 
 
 }
+
+
+//////////////////delete cart whene check out////////////
+
+function delete_cart() {
+    if (localStorage.getItem("userCart")) {
+        localStorage.removeItem("userCart")
+    }
+}
