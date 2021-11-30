@@ -1,54 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../css/style.css" />
     <title>Checkout</title>
-  </head>
-  <body>
-    <!-- #region Nav-->
-    <nav id="nav" class="bg-dark txt-white">
-      <div id="nav-logo">BeeMart🐝</div>
-      <div id="nav-list">
-        <img
-          onclick="showNav()"
-          onblur="hideNav()"
-          class="hide"
-          src="../assets/nav_list.svg"
-          alt="nav_list"
-        />
-        <div id="nav-links" class="">
-          <a href="./home.html">Home</a>
+ 
+</head>
 
-          <a href="./products.html">Products</a>
+<body>
+   <!-- #region Nav-->
+   <nav id="nav" class="bg-dark txt-white">
+    <div id="nav-logo">BeeMart🐝</div>
+    <div id="nav-list">
+      <img
+        onclick="showNav()"
+        onblur="hideNav()"
+        class="hide"
+        src="../assets/nav_list.svg"
+        alt="nav_list"
+      />
+      <div id="nav-links" class="">
+        <a href="./home.html">Home</a>
 
-          <a href="#about">About us</a>
+        <a href="./products.html">Products</a>
 
-          <a href="./products.html" class="flexing-row"
-            ><span>Search</span>
-            <img
-              class="icon"
-              src="../assets/search.svg"
-              alt="nav_icon_search"
-            />
-          </a>
+        <a href="#about">About us</a>
 
-          <a href="./cart.html" class="flexing-row">
-            <span>Cart</span>
-            <img class="icon" src="../assets/cart.svg" alt="nav_icon_cart" />
-          </a>
+        <a href="./products.html" class="flexing-row"
+          ><span>Search</span>
+          <img
+            class="icon"
+            src="../assets/search.svg"
+            alt="nav_icon_search"
+          />
+        </a>
 
-          <a id="nav-signin" href="./signin.html">
-            <span id="authed-username">Please</span><span> Sign in</span></a
-          >
-        </div>
+        <a href="./cart.html" class="flexing-row">
+          <span>Cart</span>
+          <img class="icon" src="../assets/cart.svg" alt="nav_icon_cart" />
+        </a>
+
+        <a id="nav-signin" href="./signin.html">
+          <span id="authed-username">Please</span><span> Sign in</span></a
+        >
       </div>
-    </nav>
-    <!-- #endregion -->
-    HI
-    <script src="../js/app.js"></script>
-    <script src="../js/nav.js"></script>
-  </body>
+    </div>
+  </nav>
+  <!-- #endregion -->
+
+    <div class="mian_cheackout">
+        <div class="child_cheackout">
+            <div class="proces">
+                <div class="proces_cart" style="border-radius: 100px;height: 60px;width: 60px;background-color: rgb(255, 203, 5);">
+                    <img src="../resources/cart2.png" alt="cart" width="60px" height="60px">
+                </div>
+                <div class="linespace"></div>
+                <div class="cheackout_proces" style="border-radius: 100px;height: 60px;width: 60px;background-color: rgb(255, 203, 5);"><img src="../resources/food-delivery.png" width="60px" height="60px"></div>
+                <div class="linespace"></div>
+                <div class="done_proces" style="border-radius: 100px;height: 60px;width: 60px;background-color: gray;"><img src="../resources/deliver.png" width="60px" height="60px"></div>
+
+            </div>
+            <!-- 
+///////////////////////// information form -->
+
+
+
+
+            <form action="order_done.html" id="form_checkout_id">
+                <div id="f_l_name" class="form_div_class_checkout">
+                    <input class="w3-input form_div_class_2items" type="text" placeholder="First Name" id="F_name" required>
+                    <input class="w3-input form_div_class_2items" type="text" placeholder="Last Name" id="L_name" required onblur="check_validation_text('L_name')">
+                </div>
+
+                <div id="phone" class="form_div_class_checkout">
+                    <input class="w3-input" type="tel" placeholder="Phone" id="Phone" required onblur="check_validation_text('Phone')" pattern="[0-9]{11}">
+                </div>
+                <div id="city_street" class="form_div_class_checkout">
+                    <input class="w3-input form_div_class_2items" type="text" id="City" placeholder="City" required onblur="check_validation_text('City')" pattern="[a-zA-z0-9 ]{3,15}">
+                    <input class="w3-input form_div_class_2items" type="text" id="Street" placeholder="Street">
+                </div>
+                <div id="email" class="form_div_class_checkout">
+                    <input class="w3-input" type="email" placeholder="Email" id="Email" required>
+                </div>
+                <div id="signup_signin_buttons" class="form_div_class_checkout" style="margin-top: 25px; width: 90%;">
+                    <input class="w3-input  submitcolor" type="submit" value="ok" onclick="submmition()">
+                </div>
+                <div style="height: 20px;"></div>
+
+        </div>
+
+        <!-- /////////////////////////////// -->
+    </div>
+    </div>
+
+
+
+    <script src="../js/checkout.js"></script>
+    <script src='../js/nav.js'></script>
+</body>
+
 </html>

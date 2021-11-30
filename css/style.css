@@ -294,6 +294,60 @@ select {
     width: 100%;
     height: 100%;
   }
+  /*////////////////cheackout//////*/
+  .mian_cheackout {
+    width: 70vw;
+    height: 90vh;
+    background-color: rgb(255, 203, 5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(var(--clr-black) / 0.2),
+      0 6px 20px 0 rgba(var(--clr-black) / 0.19);
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .child_cheackout {
+    width: 60%;
+    height: 80%;
+    background-color: rgb(var(--clr-white));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(var(--clr-black) / 0.2),
+      0 6px 20px 0 rgba(var(--clr-black) / 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
+  }
+  .proces {
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+  }
+  .linespace {
+    width: 25%;
+    height: 3px;
+    background-color: rgb(var(--clr-black));
+  }
+  .form_div_class_checkout {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin: auto;
+  }
+  /* //////////////done order */
+  .correct {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*///////////////////////////*/
@@ -407,6 +461,7 @@ select {
 }
 
 /* Font weights */
+
 .fw-bold {
   font-weight: bold;
 }
@@ -674,6 +729,7 @@ hr {
 .cart-counter {
   max-width: 100%;
 }
+
 .counter-button {
   border: 0rem;
   width: clamp(1rem, 30%, 2rem);
@@ -681,6 +737,7 @@ hr {
   border-radius: 0.5rem;
   cursor: pointer;
 }
+
 .counter-input {
   width: clamp(2rem, 100%, 4rem);
   padding: 0.5rem;
@@ -703,6 +760,7 @@ hr {
   padding: 0.4rem;
   padding-inline: 0.5rem;
 }
+
 /* Home page *************************** aya */
 
 /*Nav bar and footer**/
@@ -1062,5 +1120,59 @@ select {
   .leftpart_logo {
     width: 100%;
     height: 100%;
+  }
+  /*////////////////cheackout//////*/
+  .mian_cheackout {
+    width: 95vw;
+    height: 80vh;
+    background-color: rgb(255, 203, 5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(var(--clr-black) / 0.2),
+      0 6px 20px 0 rgba(var(--clr-black) / 0.19);
+    margin: auto;
+    margin-top: 2.5 vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .child_cheackout {
+    width: 95%;
+    height: 70%;
+    background-color: rgb(var(--clr-white));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(var(--clr-black) / 0.2),
+      0 6px 20px 0 rgba(var(--clr-black) / 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
+  }
+  .proces {
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+  }
+  .linespace {
+    width: 25%;
+    height: 2px;
+    background-color: rgb(var(--clr-black));
+  }
+  .form_div_class_checkout {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin: auto;
+  }
+  /* //////////////done order */
+  .correct {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
