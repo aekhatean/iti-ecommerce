@@ -116,10 +116,6 @@ fetch("../api/products.json")
 
 //add to cart handle
 
-// add_product_form.onsubmit(function (ele) {
-//   event.preventDefault();
-//   console.log(ele);
-// });
 function addToCart(purchaseForm) {
   event.preventDefault();
   const id = purchaseForm.childNodes[1].attributes.key.value;
@@ -132,5 +128,5 @@ function addToCart(purchaseForm) {
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
-  console.log(purchaseForm.childNodes[3].value);
+  handleCartNotification();
 }

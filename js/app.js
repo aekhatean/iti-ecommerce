@@ -139,6 +139,7 @@ function addToCart(purchaseButton) {
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
+  handleCartNotification();
 }
 
 // Show cart products on cart page load

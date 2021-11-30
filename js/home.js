@@ -1,3 +1,4 @@
+// import { handleCartNotification, cart_count } from "../modules/index.js";
 /**Global variables */
 var home_product = document.getElementById("products-grid");
 let cartProducts = JSON.parse(localStorage.getItem("userCart")) || Array();
@@ -67,17 +68,33 @@ fetch("../api/products.json")
       }
     }
   });
-
 function addToCart(purchaseButton) {
   const id = purchaseButton.attributes.key.value;
   const productCount = 1;
+
   const PurchasedProduct = {
     id: id,
     count: productCount,
   };
+
   cartProducts.push(PurchasedProduct);
   if (cartProducts.length > 0) {
     localStorage.setItem("userCart", JSON.stringify(cartProducts));
   }
-  console.log(id);
+  cart_count = productCount;
 }
+// let cart_count = 0;
+
+// const handleCartNotification = () => {
+//   const counter_span = document.getElementById("cart_count");
+
+//   let counting_array = [];
+//   JSON.parse(localStorage.getItem("userCart")).map((item) =>
+//     counting_array.push(parseInt(item.count))
+//   );
+//   cart_count = counting_array.reduce((a, b) => a + b, 0);
+//   console.log(cart_count);
+//   counter_span.innerText = cart_count;
+// };
+
+// window.onload = handleCartNotification();
