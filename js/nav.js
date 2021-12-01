@@ -79,7 +79,7 @@ function hide() {
 
 const nav_username = document.getElementById("authed-username");
 const nav_signin = document.getElementById("nav-signin");
-const currentUser = JSON.parse(localStorage.getItem("currentUser"))[0].F_name;
+//const currentUser = JSON.parse(localStorage.getItem("currentUser"))[0].F_name;
 function displayUser() {
   if (localStorage.getItem("currentUser")) {
     var user = JSON.parse(localStorage.getItem("currentUser"));
@@ -114,5 +114,3 @@ const handleCartNotification = () => {
 
 handleCartNotification();
 displayUser();
-
-console.log(currentUser);
