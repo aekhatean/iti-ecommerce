@@ -108,7 +108,7 @@ const handleCartNotification = () => {
     counting_array.push(parseInt(item.count))
   );
   cart_count = counting_array.reduce((a, b) => a + b, 0);
-  console.log(cart_count);
+  //console.log(cart_count);
   counter_span.innerText = cart_count;
 };
 

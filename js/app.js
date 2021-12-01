@@ -116,7 +116,7 @@ function displayProducts() {
             productsGrid.appendChild(
               createProductNode(id, image, title, price, rating)
             );
-            console.log(productsGrid.childElementCount);
+            //console.log(productsGrid.childElementCount);
           }
         });
       } else {
@@ -182,6 +182,7 @@ function removeFromCart(event, id) {
     }
   }
   event.target.parentNode.remove();
+  handleCartNotification();
 }
 
 // Create product card for cart page
@@ -253,7 +254,7 @@ function showCart() {
       fetch("../api/products.json")
         .then((res) => res.json())
         .then((data) => {
-          console.log(currentCart);
+          // console.log(currentCart);
           let { id, image, title, price } = data[productIndex];
 
           // get count of every product from local storage
